@@ -1,2 +1,2 @@
-# vironniemi
-User service of project Helsinki
+# User service of Eir
+User service of project Eir
