@@ -16,11 +16,17 @@ $ source .venv/bin/activate
 ## Build and run
 Install all dependencies in `requirements.txt`:
 ```shell script
-$ pip install -r requirements.txt
+$ python -m pip install -r requirements.txt
 ```
 Get your server up and running:
 ```shell script
 $ uvicorn main:app --reload
+```
+
+### Notes
+Remember to format with `black` before pushing code:
+```
+$ python -m black .
 ```
 
 ## Refrerences
