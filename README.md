@@ -23,11 +23,8 @@ Get your server up and running:
 $ uvicorn main:app --reload
 ```
 
-### Notes
-Remember to format with `black` before pushing code:
-```
-$ python -m black .
-```
+## Test
+Execute `pytest` at project root to run all available unittests, and prevent you from being rejected by github actions' job.
 
 ## Refrerences
 [FastAPI](https://fastapi.tiangolo.com)
