@@ -12,6 +12,9 @@ on:
 permissions:
   contents: read
 
+env:
+  POSTGRES_URI: ${{ secrets.POSTGRES_URI }}
+
 jobs:
   build:
 

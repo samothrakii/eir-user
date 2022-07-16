@@ -15,7 +15,7 @@ $ source .venv/bin/activate
 
 ## Configuration
 User service has these following environment variables, make sure you declare it in your `.env` file before start:
-- POSTGRES_URI: follow these format to get PostgreSQL URI `postgres://username:password@host:port/db-name`
+- POSTGRES_URI: follow these format to get PostgreSQL URI `postgresql://username:password@host:port/db-name`
 
 ## Build and run
 Install all dependencies in `requirements.txt`:
