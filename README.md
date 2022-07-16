@@ -13,14 +13,18 @@ $ python -m venv .venv
 $ source .venv/bin/activate
 ```
 
+## Configuration
+User service has these following environment variables, make sure you declare it in your `.env` file before start:
+- POSTGRES_URI: follow these format to get PostgreSQL URI `postgres://username:password@host:port/db-name`
+
 ## Build and run
 Install all dependencies in `requirements.txt`:
 ```shell script
 $ python -m pip install -r requirements.txt
 ```
-Get your server up and running:
+Get your service up and running:
 ```shell script
-$ uvicorn main:app --reload
+$ uvicorn app.main:app --reload
 ```
 
 ## Test
