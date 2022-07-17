@@ -6,6 +6,8 @@ from app.core.config import settings
 
 app = FastAPI()
 
+print(settings.POSTGRES_URI)
+
 
 @app.get("/")
 async def root():

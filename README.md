@@ -15,7 +15,10 @@ $ source .venv/bin/activate
 
 ## Configuration
 User service has these following environment variables, make sure you declare it in your `.env` file before start:
-- POSTGRES_URI: follow these format to get PostgreSQL URI `postgresql://username:password@host:port/db-name`
+- POSTGRES_SERVER
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- POSTGRES_DB
 
 ## Build and run
 You can start all services by using Docker Compose (recommended):
