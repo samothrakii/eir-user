@@ -21,11 +21,6 @@ User service has these following environment variables, make sure you declare it
 - POSTGRES_DB
 
 ## Build and run
-You can start all services by using Docker Compose (recommended):
-```shell script
-$ docker-compose up
-```
-Or do it manually.
 Install all dependencies in `requirements.txt`:
 ```shell script
 $ python -m pip install -r requirements.txt
