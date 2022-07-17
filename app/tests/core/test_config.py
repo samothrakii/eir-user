@@ -1,9 +1,9 @@
 from typing import Generator
 import pytest
 
-from app.db.session import SessionLocal
+from app.db import get_db
 
 
 @pytest.fixture(scope="session")
 def session() -> Generator:
-    yield SessionLocal()
+    yield get_db()

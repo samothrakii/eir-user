@@ -29,6 +29,11 @@ Get your service up and running:
 ```shell script
 $ uvicorn app.main:app --reload
 ```
+For DB migration, checkout [Alembic](https://alembic.sqlalchemy.org/en/latest/):
+```shell script
+$ alembic revision --autogenerate
+$ alembic upgrade head
+```
 
 ## Test
 Execute `pytest` at project root to run all available unittests, and prevent you from being rejected by github actions' job.
