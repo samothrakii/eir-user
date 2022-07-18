@@ -2,7 +2,6 @@ version: "3.3"
 services:
   db:
     image: postgres:14
-    restart: unless-stopped
     volumes:
       - app-db-data:/var/lib/postgresql/data/pgdata
     ports:
@@ -13,13 +12,15 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
 
   service:
-    image: python:3.10
+    image: python:3.10-slim
     depends_on:
       - db
     env_file:
       - .env
     ports:
-      - '8001:8001'
+      - "8000:8000"
+    expose:
+      - "8000"
     build:
       context: ./
       dockerfile: Dockerfile

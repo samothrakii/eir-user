@@ -1,11 +1,19 @@
-FROM python:3.10
+FROM python:3.10-slim
 
-WORKDIR /eir-user
+WORKDIR /app
+RUN apt-get update && \
+  apt-get install -y python3 python3-pip curl
 
-COPY ./requirements.txt /eir-user/requirements.txt
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 && \
+  cd /usr/local/bin && \
+  ln -s /opt/poetry/bin/poetry && \
+  poetry config virtualenvs.create false
 
-RUN pip install --no-cache-dir --upgrade -r /eir-user/requirements.txt
+COPY ./pyproject.toml ./poetry.lock* /app/
 
-COPY ./app /eir-user/app
+RUN poetry install
 
+COPY ./app /app/app
+
+EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--reload"]
