@@ -6,7 +6,7 @@ authors = ["Khoa Nguyen <khoadnguyen.se@gmail.com>"]
 license = "GPL-3.0"
 
 [tool.poe.tasks]
-start = "uvicorn app.main:app --reload"
+start = "uvicorn app.main:app --port 9001 --reload"
 test = "pytest"
 format = "black ."
 
