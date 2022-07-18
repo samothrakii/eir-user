@@ -9,8 +9,6 @@ Clone repository by `git clone` to your local computer. Then create and activate
 ```shell script
 $ git clone git@github.com:Sam0thrace/eir-user.git
 $ cd eir-user
-$ python -m venv .venv
-$ source .venv/bin/activate
 ```
 
 ## Configuration
@@ -23,20 +21,27 @@ User service has these following environment variables, make sure you declare it
 ## Build and run
 Install all dependencies in `requirements.txt`:
 ```shell script
-$ python -m pip install -r requirements.txt
+$ poetry install
 ```
 Get your service up and running:
 ```shell script
-$ uvicorn app.main:app --reload
+$ poetry run uvicorn app.main:app --reload
 ```
 For DB migration, checkout [Alembic](https://alembic.sqlalchemy.org/en/latest/):
 ```shell script
-$ alembic revision --autogenerate
-$ alembic upgrade head
+$ poetry run alembic revision --autogenerate
+$ poetry run alembic upgrade head
+```
+
+NOTE: Install `poethepoet` to be able to run poe tasks, it will save your time.
+```shell script
+$ python -m pip install poethepoet
+$ poe test # alias for poetry run pytest
+$ poe start # poetry run uvicorn app.main:app --reload
 ```
 
 ## Test
-Execute `pytest` at project root to run all available unittests, and prevent you from being rejected by github actions' job.
+Execute `poetry run pytest` at project root to run all available unittests, and prevent you from being rejected by github actions' job.
 
 ## Refrerences
 [FastAPI](https://fastapi.tiangolo.com)
