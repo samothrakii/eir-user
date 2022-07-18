@@ -41,7 +41,7 @@ For DB migration, checkout [Alembic](https://alembic.sqlalchemy.org/en/latest/):
 First, check if versions folder exists in alembic folder.
 If not, create versions folder.
 In alembic.ini, change 
-sqlalchemy.url = postgresql://{user_name}:{password}@localhost:5432/{db_names}
+`sqlalchemy.url = postgresql://{user_name}:{password}@localhost:5432/{db_names}`
 ```shell script
 $ poetry run alembic revision --autogenerate
 $ poetry run alembic upgrade head
