@@ -13,21 +13,35 @@ $ cd eir-user
 
 ## Configuration
 User service has these following environment variables, make sure you declare it in your `.env` file before start:
-- POSTGRES_SERVER
-- POSTGRES_USER
-- POSTGRES_PASSWORD
-- POSTGRES_DB
+First create your .env file:
+```shell script
+$ touch .env
+```
+Assign variables:
+- POSTGRES_SERVER=localhost:5432
+- POSTGRES_USER={user_name}
+- POSTGRES_PASSWORD={password}
+- POSTGRES_DB={db_names}
 
 ## Build and run
 Install all dependencies in `requirements.txt`:
 ```shell script
 $ poetry install
 ```
+Build and run docker
+```shell script
+$ docker compose up -d
+```
+
 Get your service up and running:
 ```shell script
 $ poetry run uvicorn app.main:app --reload
 ```
 For DB migration, checkout [Alembic](https://alembic.sqlalchemy.org/en/latest/):
+First, check if versions folder exists in alembic folder.
+If not, create versions folder.
+In alembic.ini, change 
+sqlalchemy.url = postgresql://{user_name}:{password}@localhost:5432/{db_names}
 ```shell script
 $ poetry run alembic revision --autogenerate
 $ poetry run alembic upgrade head
