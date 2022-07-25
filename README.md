@@ -33,7 +33,7 @@ Build and run docker
 $ docker compose up -d
 ```
 
-Get your service up and running:
+After building docker, your app run automatically in the local service docker. However, you can build and run app by following:
 ```shell script
 $ poetry run uvicorn app.main:app --reload
 ```
