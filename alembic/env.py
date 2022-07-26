@@ -9,6 +9,19 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
+# load environment variables
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+db_host = os.environ.get('POSTGRES_SERVER')
+db_user = os.environ.get('POSTGRES_USER')
+db_password = os.environ.get('POSTGRES_PASSWORD')
+db_dbname = os.environ.get('POSTGRES_DB')
+connection_string = f'postgresql://{db_user}:{db_password}@{db_host}/{db_dbname}'
+config.set_main_option('sqlalchemy.url', connection_string)
+
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
