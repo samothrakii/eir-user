@@ -33,7 +33,7 @@ Build and run docker
 $ docker compose up -d
 ```
 
-After building docker, your app run automatically in the local service docker. Open your browser at http://http://localhost:9001/ to check.However, you can build and run app by following:
+After building docker, your app run automatically in the local service docker. Open your browser at http://localhost:9001/ to check.However, you can build and run app by following:
 ```shell script
 $ poetry run uvicorn app.main:app --reload
 ```
