@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-import app.models.user_entity
-import app.models.schemas
+import app.models.user_entity as user_entity
+import app.models.schemas as schemas
 
 def create_user(db: Session, user: schemas.UserCreate):
     fake_hashed_password = user.password + "notreallyhashed"

@@ -11,7 +11,7 @@ from app.db import Base
 
 class User(Base):
     __tablename__ = "user"
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, unique=True)
     first_name = Column(String)
     last_name = Column(String)
     gender = Column(String)
@@ -26,8 +26,8 @@ class User(Base):
 
 class UserRole(Base):
     __tablename__ = "user_role"
-    user_id = Column(Integer, ForeignKey("user.id"))
-    role_id = Column(Integer, ForeignKey("role.id"))
+    user_id = Column(Integer, ForeignKey("user.id"), primary_key=True, unique=True)
+    role_id = Column(Integer, ForeignKey("role.id"), primary_key=True, unique=True)
     version = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
@@ -35,8 +35,8 @@ class UserRole(Base):
 
 class Role(Base):
     __tablename__ = "role"
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, _empty=False)
+    id = Column(Integer, primary_key=True, index=True, unique=True)
+    title = Column(String)
     version = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
