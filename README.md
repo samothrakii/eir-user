@@ -12,16 +12,19 @@ $ cd eir-user
 ```
 
 ## Configuration
-User service has these following environment variables, make sure you declare it in your `.env` file before start:
+User service has these following environment variables, make sure you declare it in your `.env` file before start.
+
 First create your .env file:
 ```shell script
 $ touch .env
 ```
-Assign variables:
-- POSTGRES_SERVER=localhost:5432
-- POSTGRES_USER={user_name}
-- POSTGRES_PASSWORD={password}
-- POSTGRES_DB={db_names}
+Assign these variables:
+```shell script
+POSTGRES_SERVER=[host:port]
+POSTGRES_USER=[user_name]
+POSTGRES_PASSWORD=[password]
+POSTGRES_DB=[db_name]
+```
 
 ## Build and run
 Install all dependencies in `requirements.txt`:
@@ -41,7 +44,7 @@ For DB migration, checkout [Alembic](https://alembic.sqlalchemy.org/en/latest/):
 First, check if versions folder exists in alembic folder.
 If not, create versions folder.
 In alembic.ini, change 
-`sqlalchemy.url = postgresql://{user_name}:{password}@localhost:5432/{db_names}`
+`sqlalchemy.url = postgresql://[user_name]:[password]@localhost:5432/[db_name]`
 ```shell script
 $ poetry run alembic revision --autogenerate
 $ poetry run alembic upgrade head
