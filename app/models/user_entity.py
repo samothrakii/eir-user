@@ -4,7 +4,7 @@ from inspect import _empty
 from queue import Empty
 from sqlite3 import DateFromTicks
 from pydantic import EmailStr
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime, Date
 from sqlalchemy.orm import relationship
 
 from app.db import Base
@@ -20,7 +20,7 @@ class User(Base):
     phone_number = Column(Integer, unique=True)
     email = Column(String, unique=True)
     password = Column(String)
-    date_of_birth = Column(datetime.date)
+    date_of_birth = Column(Date)
     version = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
