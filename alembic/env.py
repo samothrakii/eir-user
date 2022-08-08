@@ -15,12 +15,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-db_host = os.environ.get('POSTGRES_SERVER')
-db_user = os.environ.get('POSTGRES_USER')
-db_password = os.environ.get('POSTGRES_PASSWORD')
-db_dbname = os.environ.get('POSTGRES_DB')
-connection_string = f'postgresql://{db_user}:{db_password}@{db_host}/{db_dbname}'
-config.set_main_option('sqlalchemy.url', connection_string)
+db_host = os.environ.get("POSTGRES_SERVER")
+db_user = os.environ.get("POSTGRES_USER")
+db_password = os.environ.get("POSTGRES_PASSWORD")
+db_dbname = os.environ.get("POSTGRES_DB")
+connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_dbname}"
+config.set_main_option("sqlalchemy.url", connection_string)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -75,13 +75,11 @@ def run_migrations_online() -> None:
 
     """
     engine = engine_from_config(
-                config.get_section(config.config_ini_section), prefix='sqlalchemy.')
+        config.get_section(config.config_ini_section), prefix="sqlalchemy."
+    )
 
     with engine.connect() as connection:
-        context.configure(
-                    connection=connection,
-                    target_metadata=target_metadata
-                    )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

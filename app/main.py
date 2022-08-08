@@ -20,4 +20,3 @@ async def root():
 
 
 app.include_router(user.router)
-
