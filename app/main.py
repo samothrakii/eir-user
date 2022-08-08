@@ -1,8 +1,13 @@
 from fastapi import FastAPI
+from sqlalchemy.orm import Session
 
-from app.routers import example
+from app.models import user_entity
+from app.db import SessionLocal, engine, get_db
+
+from app.routers import user
 from app.core.config import settings
 
+user_entity.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -14,4 +19,4 @@ async def root():
     return {"message": "Hello World!"}
 
 
-app.include_router(example.router)
+app.include_router(user.router)
