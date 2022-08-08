@@ -1,7 +1,7 @@
 from enum import unique
 from inspect import _empty
 from queue import Empty
-from sqlite3 import Date
+from sqlite3 import Date, DateFromTicks
 from pydantic import EmailStr
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
@@ -18,8 +18,8 @@ class User(Base):
     role_id = Column(Integer, ForeignKey("user_role.role_id"))
     phone_number = Column(Integer, unique=True)
     email = Column(String, unique=True)
-    hashed_password = Column(String)
-    date_of_birth = Column(DateTime)
+    password = Column(String)
+    date_of_birth = Column(Date)
     version = Column(Integer)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
