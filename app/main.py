@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from sqlalchemy.orm import Session
 
 from app.models import user_entity
 from app.db import SessionLocal, engine, get_db
@@ -13,10 +12,8 @@ app = FastAPI()
 
 print(settings.POSTGRES_URI)
 
-
 @app.get("/")
 async def root():
     return {"message": "Hello World!"}
-
 
 app.include_router(user.router)
