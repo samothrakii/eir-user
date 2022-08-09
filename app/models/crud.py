@@ -19,3 +19,6 @@ def create_user(db: Session, user: schemas.UserCreate):
 
 def get_user_by_email(db: Session, email: str):
     return db.query(user_entity.User).filter(user_entity.User.email == email).first()
+
+def get_user_by_phone(db: Session, phone_number: int):
+    return db.query(user_entity.User).filter(user_entity.User.phone_number == phone_number).first()
