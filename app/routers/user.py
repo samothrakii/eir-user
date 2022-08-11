@@ -10,11 +10,11 @@ from sqlalchemy.orm import Session
 
 router = APIRouter()
 
-@router.post("/user/v1/create", tags=["user"])
+@router.post("/v1/create", tags=["user"])
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return crud.create_user(db=db, user=user)
 
-@router.get("/user/v1/validation", tags=["user"])
+@router.get("/v1/validation", tags=["user"])
 def validate_email_phone(user_input: str, db: Session = Depends(get_db)):
     user: schemas.User | None = None
     if re.search(const.email_regex,user_input):  
